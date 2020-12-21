@@ -49,6 +49,38 @@ public class Indexador {
         doc.add(new Field("Contenido", TextoCompletoBuscado, Field.Store.YES, Field.Index.TOKENIZED));
         writer.addDocument(doc);	
     }
+    public void indexQuesoDuro(QuesoDuro queso) throws IOException  {
+        System.out.println("Indexando Quesos: " + queso);
+        IndexWriter writer = getIndexadoEscrito(false);
+        Document doc = new Document();
+        doc.add(new Field("Id", queso.getId(), Field.Store.YES, Field.Index.NO));
+        doc.add(new Field("Nombre", queso.getNombre(), Field.Store.YES, Field.Index.TOKENIZED));
+        doc.add(new Field("Pais", queso.getPais(), Field.Store.YES, Field.Index.UN_TOKENIZED));
+        doc.add(new Field("Descripcion", queso.getDescripcion(), Field.Store.YES, Field.Index.TOKENIZED));
+        doc.add(new Field("origen", queso.getOrigen(), Field.Store.YES, Field.Index.TOKENIZED));
+        doc.add(new Field("envejecimiento", queso.getEnvejecimiento(), Field.Store.YES, Field.Index.TOKENIZED));
+      
+ 
+        String TextoCompletoBuscado = queso.getNombre() + " " + queso.getPais() + " " + queso.getDescripcion();
+        doc.add(new Field("Contenido", TextoCompletoBuscado, Field.Store.YES, Field.Index.TOKENIZED));
+        writer.addDocument(doc);	
+    }
+    public void indexQuesoSuave(QuesoSuave queso) throws IOException  {
+        System.out.println("Indexando Quesos SUAVES: " + queso);
+        IndexWriter writer = getIndexadoEscrito(false);
+        Document doc = new Document();
+        doc.add(new Field("Id", queso.getId(), Field.Store.YES, Field.Index.NO));
+        doc.add(new Field("Nombre", queso.getNombre(), Field.Store.YES, Field.Index.TOKENIZED));
+        doc.add(new Field("Pais", queso.getPais(), Field.Store.YES, Field.Index.UN_TOKENIZED));
+        doc.add(new Field("Descripcion", queso.getDescripcion(), Field.Store.YES, Field.Index.TOKENIZED));
+        doc.add(new Field("origen", queso.getOrigen(), Field.Store.YES, Field.Index.TOKENIZED));
+           
+        String TextoCompletoBuscado = queso.getNombre() + " " + queso.getPais() + " " + queso.getDescripcion();
+        doc.add(new Field("Contenido", TextoCompletoBuscado, Field.Store.YES, Field.Index.TOKENIZED));
+        writer.addDocument(doc);
+    	
+    }
+
     public void indexPasta(Pasta pasta) throws IOException  {
         System.out.println("Indexando Pasta: " + pasta);
         IndexWriter writer = getIndexadoEscrito(false);
@@ -63,6 +95,7 @@ public class Indexador {
         doc.add(new Field("Contenido", TextoCompletoBuscado, Field.Store.YES, Field.Index.TOKENIZED));
         writer.addDocument(doc);	
     }
+
     
     public void reconstruyeIndexado() throws IOException {
     	 // Elimina el Indice Existente
@@ -72,16 +105,27 @@ public class Indexador {
         // Indexa todas las entradas
         //
         BaseQuesoSemiSuave quesoSemiSuaveBD  = new BaseQuesoSemiSuave();
+        BaseQuesoDuro quesoDuroBD  = new BaseQuesoDuro();
+        BaseQuesoSuave quesoSuaveBD = new BaseQuesoSuave();
         BasePasta pastaDB = new BasePasta();
 
         ArrayList<QuesoSemiSuave> quesos = quesoSemiSuaveBD.getQuesos();
+        ArrayList<QuesoDuro> quesosDuros = quesoDuroBD.getQuesos();
+        ArrayList<QuesoSuave> quesosSuaves = quesoSuaveBD.getQuesos();
         ArrayList<Pasta> pastas = pastaDB.getPastas();
+        
         
         for(QuesoSemiSuave queso : quesos) {
             indexQuesoSemiSuave(queso);              
         }
         for(Pasta pasta : pastas) {
             indexPasta(pasta);              
+        }
+        for(QuesoDuro quesoDuro : quesosDuros) {
+            indexQuesoDuro(quesoDuro);              
+        }
+        for(QuesoSuave quesoSuave : quesosSuaves) {
+            indexQuesoSuave(quesoSuave);              
         }
         //
         // Cierra el indexado mientras se realiza
