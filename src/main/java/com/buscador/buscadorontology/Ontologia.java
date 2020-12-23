@@ -148,12 +148,7 @@ public class Ontologia {
 					e.printStackTrace();
 				}
 			}
-			try {
-				modelo.write(new PrintWriter(file));
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			
 
 	 }
 	 
