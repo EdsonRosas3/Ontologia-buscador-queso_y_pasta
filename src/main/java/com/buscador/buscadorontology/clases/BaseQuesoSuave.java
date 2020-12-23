@@ -4,10 +4,11 @@ import java.util.ArrayList;
 
 public class BaseQuesoSuave extends BaseInformacion{
 
-	private static ArrayList<QuesoSuave> quesosSuaves=new ArrayList<>();;
+	private static ArrayList<QuesoSuave> quesosSuaves=new ArrayList<>();
 	private  ArrayList<String> nombresIndividuos;
    
 	   public BaseQuesoSuave() {
+		   quesosSuaves=new ArrayList<>();
 		   nombresIndividuos = new ArrayList<>();
 		   nombresIndividuos.add("\"Bryndza\"");
 		   nombresIndividuos.add("\"Cottage\"");
