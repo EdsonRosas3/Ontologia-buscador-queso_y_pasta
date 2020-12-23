@@ -2,14 +2,13 @@ package com.buscador.buscadorontology.clases;
 
 import java.util.ArrayList;
 
-import com.buscador.buscadorontology.ConsultasBuscador;
-
 public class BaseQuesoSemiSuave extends BaseInformacion{
    private static ArrayList<QuesoSemiSuave> quesosSemiSuaves=new ArrayList<>();
 
    private  ArrayList<String> nombresIndividuos;
    
    public BaseQuesoSemiSuave() {
+	  quesosSemiSuaves=new ArrayList<>();
 	  nombresIndividuos = new ArrayList<>();
 	  nombresIndividuos.add("\"Feta\"");
 	  nombresIndividuos.add("\"Fontina\"");
