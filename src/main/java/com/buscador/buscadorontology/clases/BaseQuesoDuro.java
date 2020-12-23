@@ -27,7 +27,7 @@ public class BaseQuesoDuro extends BaseInformacion {
 		for(String individuo : nombresIndividuos) {
 			String descrip=consultaBuscador.GetDatoOntologia("descripcionQ",individuo);
 			String pais = consultaBuscador.GetDatoOntologia("paisq", individuo);
-			String nombre = consultaBuscador.GetDatoOntologia("nombreq", individuo);
+			String nombre =consultaBuscador.GetDatoOntologia("nombreq", individuo);
 			String origen = consultaBuscador.GetDatoOntologia("origen", individuo);
 			String envejecimiento = consultaBuscador.GetDatoOntologia("envejecimiento", individuo);
 			

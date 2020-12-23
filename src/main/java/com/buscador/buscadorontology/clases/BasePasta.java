@@ -22,7 +22,7 @@ public class BasePasta extends BaseInformacion{
 			añadirBD();
 	   }
 	   
-	   
+	  
 	   public void añadirBD() {
 		int i=0;
 		for(String individuo : nombresIndividuos) {
