@@ -165,14 +165,14 @@ public class Ontologia {
 	private void CrearIndividuoQuesoDuro(){
 		ConsultasDBpedia consultaDBpedia = new ConsultasDBpedia();
 		Individual halloumi = modelo.createIndividual(NS+":"+"Brie",quesoDuro);
-		Individual manchego = modelo.createIndividual(NS+":"+"Manchego",quesoDuro);
+		manchego = modelo.createIndividual(NS+":"+"Manchego",quesoDuro);
 		Individual ricotta = modelo.createIndividual(NS+":"+"Ricotta",quesoDuro);
 		Individual majorero = modelo.createIndividual(NS+":"+"Majorero",quesoDuro);
-		Individual parmesano = modelo.createIndividual(NS+":"+"Parmigiano-Reggiano",quesoDuro);
+		parmesano = modelo.createIndividual(NS+":"+"Parmigiano-Reggiano",quesoDuro);
 		Individual corleggy = modelo.createIndividual(NS+":"+"Corleggy_Cheese",quesoDuro);
 		
 		// propiedades para el individuo halloumi
-		halloumi.setPropertyValue(envejecimiento, modelo.createTypedLiteral(consultaDBpedia.GetDatoDbpedia("aging", "Halloumi")));
+		halloumi.setPropertyValue(envejecimiento, modelo.createTypedLiteral(consultaDBpedia.GetDatoDbpedia("agingp", "Halloumi")));
 		halloumi.setPropertyValue(descripcion, modelo.createTypedLiteral(consultaDBpedia.GetDatoDbpedia("descripcion", "Halloumi")));
 		halloumi.setPropertyValue(nombre, modelo.createTypedLiteral(consultaDBpedia.GetDatoDbpedia("name", "Halloumi")));
 		halloumi.setPropertyValue(procedencia, modelo.createTypedLiteral(consultaDBpedia.GetDatoDbpedia("source", "Halloumi")));
@@ -397,7 +397,7 @@ public class Ontologia {
 		Individual pasta_primavera =  modelo.createIndividual(NS+":"+"Pasta_primavera",Pasta);
 		Individual bigoli =  modelo.createIndividual(NS+":"+"Bigoli",Pasta);
 		
-		lasania = modelo.createIndividual(NS+":"+"Lasaña",Pasta);
+		lasania = modelo.createIndividual(NS+":"+"Lasagna",Pasta);
 		
 		//props para el individuo lasania
 		lasania.setPropertyValue(descripcionp,modelo.createTypedLiteral(consultaDBpedia.GetDatoDbpedia("descripcion","Lasagne")));
