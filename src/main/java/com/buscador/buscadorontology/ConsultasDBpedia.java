@@ -90,6 +90,17 @@ public class ConsultasDBpedia {
 			//System.out.println(link);
 			queryExecution.close() ; 
 	}
+	   
+	   if(propiedad.equals("agingp")) {
+		String prefix ="PREFIX dbp: <http://dbpedia.org/property/>";
+		String queryAging= prefix+ "select ?valorAging \n"
+				+ "where {<http://dbpedia.org/resource/"+nombreIndividuo+"> dbp:aging ?valorAging }";
+		QueryExecution queryExecution = QueryExecutionFactory.sparqlService("http://dbpedia.org/sparql",queryAging); 
+		results = queryExecution.execSelect(); 
+		link=ResultSetFormatter.asText(results);
+		queryExecution.close() ; 
+	
+}
 	 if(propiedad=="pais") {
 		 String prefixos= "PREFIX dbont: <http://dbpedia.org/ontology/>"+ 
 		 "PREFIX dbp: <http://dbpedia.org/property/>";
