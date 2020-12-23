@@ -59,11 +59,11 @@ public class buscadorController {
             String dato = doc.get("pasteurizado");
             nombre = doc.get("Nombre");
             
-            nombre = nombre.replaceAll("-","");
+            /*nombre = nombre.replaceAll("-","");
             nombre = nombre.replaceAll("=","");
             nombre=nombre.replaceFirst("\"","");
-            nombre=nombre.split("\"")[0];
-            
+            nombre=nombre.split("\"")[0]; */
+            nombre = limpiarNombre(nombre);
             resultado= doc.get("Descripcion");
             resultado = resultado.replaceAll("-","");
             resultado = resultado.replaceAll("=","");
@@ -85,6 +85,15 @@ public class buscadorController {
         mav.addObject("respuesta", respuesta);
         return mav;
     }
-    
+    protected String limpiarNombre(String frase) {
+		   String res = frase;
+		   res = res.replaceAll("-","");
+	    res = res.replaceAll("=","");
+	   
+	    res=res.split("\"")[2];
+	    
+
+		   return res;
+	}
 
 }

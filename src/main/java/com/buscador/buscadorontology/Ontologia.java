@@ -138,7 +138,7 @@ public class Ontologia {
 	 
 	 private void crearArchivoOwl() {
 		//Almacenamos la ontología en un fichero OWL (Opcional)
-			File file = new File("C:\\lDesarrollo-software\\Java\\poblador-buscador-ontologia\\OntologiaQueso.owl");
+			File file = new File("C:\\Users\\HP 240-G5\\Documents\\Ontologia-buscador-queso_y_pasta\\OntologiaQueso.owl");
 			//Hay que capturar las Excepciones
 			if (!file.exists()){
 			     try {
